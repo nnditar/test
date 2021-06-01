@@ -1,0 +1,53 @@
+import React, { Component, useEffect } from 'react';
+
+
+const App = () => {
+
+useEffect(() => {
+    const egetTasks = async () => {
+        const tasksFromServer = await fetchTasks()
+        consol.log(tasksFromServer)
+    }
+    getTasks()
+}, [])
+
+const fetchTasks = async () => {
+  const res = await fetch ('http://localhost:3000/Plans')
+  const data = await res.json()
+  return(data)
+}
+
+return (
+      <div>
+        {/* {
+          db.map((item) => {
+            return (<p>{ item.name }</p>)
+          })
+        } */}
+        <p>biz</p>
+      </div>
+    )
+}
+
+export default App
+
+import React, { Component } from 'react'
+
+class App extends Component {
+
+  componentDidMount() {
+    fetch("http://localhost:3000/Plans")
+  .then(reponse => reponse.json())
+  .then(rep => console.log(rep))
+  }
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+}
+
+export default App
+
